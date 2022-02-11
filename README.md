@@ -41,6 +41,8 @@ joy_arm:=/dev/input/js0
 - [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) The lost_comms package are *looking for connection*
   - [x] Decrease the velocity when the ping is over 500ms
 - [x] ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) You can **control the robotic arm** with Attack 3 logitech joystick
+  - [ ] The actios ***1a to 1d*** are coded and tested
+  - [ ] The actios ***2a to 2f*** are coded and tested
 - [ ] ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) You can *abort any action* when the actions has started
 - [ ] ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) You can *visualize all info in a interface and interact*
   - [ ] You can controll the lab on board with the interface
