@@ -24,3 +24,18 @@ The joysticks for qr_drive_teleop and sar_arm_test could be specified by the par
 joy_drive:=/dev/input/js1
 joy_arm:=/dev/input/js0
 ```
+*The package satisfies the next checklist:*
+- [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) **Control of traction** with joystick publishing the cmd_vel topic
+- [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) **Change to autonomous mode** with start button
+  - [x] The **led matrix change color** when autonomous mode is activated
+  - [ ] The *autonomous mode is working*
+- [x]  ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) Change to move base mode with options button
+  - [x] The **led matrix change color** when move base mode is activated
+  - [ ] The *move base mode is working*
+- [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) When autonomous or movebase mode is activated, the **teleop mode is locked**
+- [ ] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) You can *return to teleop mode at any moment*
+- [ ] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) The lost_comms package are *looking for connection*
+- [x] ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) You can **control the robotic arm** with Attack 3 logitech joystick
+- [ ] ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) You can *abort any action* when the actions has started
+![Esta es una imagen](https://zonayummy.com/arteam_github/sar_arm_test_mapping.png)
+- [x] ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) You can
