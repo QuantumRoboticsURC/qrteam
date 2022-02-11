@@ -1,4 +1,5 @@
 # qrteam
+## for control rover without an active network (ROSMASTER == ROSIP)
 ___
 This github repo contains at the moment the following packages all in one:
 
