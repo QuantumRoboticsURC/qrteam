@@ -60,7 +60,7 @@ ip:=192.168.100.1,192.168.100.2
   - [ ] The bus_can_arm in c++ is launched
   - [ ] The actios ***1a to 1d*** are coded and tested
   - [ ] The actios ***2a to 2f*** are coded and tested
-- [ ] ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) You can *abort any action* when the actions has started
+- [x] ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) You can *abort any action* when the actions has started
 - [ ] ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) You can *visualize all info in a interface and interact*
   - [ ] You can controll the lab on board with the interface
   - [ ] You can see all the cameras with in the interface
