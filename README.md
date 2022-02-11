@@ -30,9 +30,12 @@ joy_arm:=/dev/input/js0
   - [x] The **led matrix change color** when autonomous mode is activated
   - [ ] The *autonomous mode is working*
     - [ ] The rover follows a gps coordinate
+    - [ ] The rover search a AR tag and follows it
 - [x]  ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) Change to move base mode with options button
   - [x] The **led matrix change color** when move base mode is activated
   - [ ] The *move base mode is working*
+    - [ ] The rover saves the gps coordinates and return to the last if is in autonomous mode
+    - [ ] THe rover return to the base
 - [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) When autonomous or movebase mode is activated, the **teleop mode is locked**
 - [ ] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) You can *return to teleop mode at any moment*
 - [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) The lost_comms package are *looking for connection*
