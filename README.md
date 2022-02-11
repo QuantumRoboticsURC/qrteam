@@ -39,9 +39,11 @@ ip:=192.168.100.1,192.168.100.2
 *The package satisfies the next checklist:*
 - [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) **Control of traction** with joystick publishing the cmd_vel topic
   - [ ] The velocity PID control area integrated
+  - [ ] The bus_can_drive in c++ is launched
 - [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) **Change to autonomous mode** with start button
   - [x] The **led matrix change color** when autonomous mode is activated
   - [ ] The *autonomous mode is working*
+    - [ ] The zed_ros_wrapper and zed_ros_exampels in c++ are launched
     - [ ] The rover follows a gps coordinate
     - [ ] The rover search a AR tag and follows it
 - [x]  ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) Change to move base mode with options button
@@ -55,6 +57,7 @@ ip:=192.168.100.1,192.168.100.2
   - [x] Decrease the velocity when the ping is over 500ms
 - [x] ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) You can **control the robotic arm** with Attack 3 logitech joystick
   - [ ] The position and velocity PID control are integrated
+  - [ ] The bus_can_arm in c++ is launched
   - [ ] The actios ***1a to 1d*** are coded and tested
   - [ ] The actios ***2a to 2f*** are coded and tested
 - [ ] ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) You can *abort any action* when the actions has started
