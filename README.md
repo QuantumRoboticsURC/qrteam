@@ -19,3 +19,8 @@ This launcher execute firts two packages with a different third package
 ```
 roslaunch qrteam qrteam_arm.launch
 ```
+The joysticks for qr_drive_teleop and sar_arm_test could be specified by the parameters:
+```
+joy_drive:=/dev/input/js1
+joy_arm:=/dev/input/js0
+```
