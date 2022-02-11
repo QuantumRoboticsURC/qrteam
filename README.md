@@ -34,7 +34,8 @@ joy_arm:=/dev/input/js0
   - [ ] The *move base mode is working*
 - [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) When autonomous or movebase mode is activated, the **teleop mode is locked**
 - [ ] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) You can *return to teleop mode at any moment*
-- [ ] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) The lost_comms package are *looking for connection*
+- [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) The lost_comms package are *looking for connection*
+  - [ ] Decrease the velocity when the ping is over 500ms
 - [x] ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) You can **control the robotic arm** with Attack 3 logitech joystick
 - [ ] ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) You can *abort any action* when the actions has started
 - [ ] ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) You can *visualize all info in a interface and interact*
