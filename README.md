@@ -29,6 +29,7 @@ joy_arm:=/dev/input/js0
 - [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) **Change to autonomous mode** with start button
   - [x] The **led matrix change color** when autonomous mode is activated
   - [ ] The *autonomous mode is working*
+    - [ ] The rover follows a gps coordinate
 - [x]  ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) Change to move base mode with options button
   - [x] The **led matrix change color** when move base mode is activated
   - [ ] The *move base mode is working*
