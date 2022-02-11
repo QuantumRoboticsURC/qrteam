@@ -4,7 +4,7 @@
   <env name="ROSCONSOLE_FORMAT" value="[${severity}][${thread}][${node}/${function}:${line}]: ${message}"/>
 
   <!--*** qr_drive_teleop ***-->
-  <!-- Joystick Drive Device Argument --> <!-- joy_drive:=/dev/input/js0 -->
+  <!-- Joystick Drive Device Argument --> <!-- joy_drive:=/dev/input/js1 -->
   <arg name="joy_drive" default="/dev/input/js1"/>
   <!-- Joy Node -->
   <node pkg="joy" type="joy_node" name="joy_drive" clear_params="true" output="screen" respawn="true">
