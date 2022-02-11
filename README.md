@@ -19,10 +19,21 @@ This launcher execute firts two packages with a different third package
 ```
 roslaunch qrteam qrteam_arm.launch
 ```
-The joysticks for qr_drive_teleop and sar_arm_test could be specified by the parameters:
+## Important!
+The joysticks for qr_drive_teleop and sar_arm_test could be specified by the parameters (js1 and js0 are default):
 ```
 joy_drive:=/dev/input/js1
 joy_arm:=/dev/input/js0
+```
+You have to select you model of joystick specified by the parameters ("ps5" is the default):
+```
+jm:=xbox
+jm:=ec
+```
+And you must to input the parameter of the IP addres or IP addresses that you can monitor ("no ip" is the default value):
+```
+ip:=192.168.100.1
+ip:=192.168.100.1,192.168.100.2
 ```
 *The package satisfies the next checklist:*
 - [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) **Control of traction** with joystick publishing the cmd_vel topic
