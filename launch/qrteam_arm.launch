@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+
+<launch>
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}][${thread}][${node}/${function}:${line}]: ${message}"/>
+
+  <!--*** qr_drive_teleop ***-->
+  <!-- Joystick Drive Device Argument --> <!-- joy_drive:=/dev/input/js0 -->
+  <arg name="joy_drive" default="/dev/input/js1"/>
+  <!-- Joy Node -->
+  <node pkg="joy" type="joy_node" name="joy_drive" clear_params="true" output="screen" respawn="true">
+    <!-- INPUT DEVICE -->
+    <param name="dev" value="$(arg joy_drive)" />
+    <param name="deadzone" value="0.10" />
+    <!--<param name="coalesce_interval" value="0.15" />-->
+    <!-- OUTPUT TOPICS -->
+    <remap from="joy" to="/joy_drive" />
+  </node>
+  <!-- qr_drive_teleop Node -->
+  <node pkg="qrteam" type="qr_drive_teleop" name="qr_drive_teleop" clear_params="true" output="screen" respawn="true"/>
+  <!-- qr_drive_teleop Node -->
+  <node pkg="qrteam" type="qr_cmd_vel_mux" name="qr_cmd_vel_mux" clear_params="true" output="screen" respawn="true"/>
+
+
+  <!--*** sar_arm_test ***-->
+  <!-- Joystick Arm Device Argument --> <!-- joy_arm:=/dev/input/js0 -->
+  <arg name="joy_arm" default="/dev/input/js0"/>
+  <!-- Joy Node -->
+  <node pkg="joy" type="joy_node" name="joy_arm" clear_params="true" output="screen" respawn="true">
+    <!-- INPUT DEVICE -->
+    <param name="dev" value="$(arg joy_arm)" />
+    <param name="deadzone" value="0.10" />
+    <!--<param name="coalesce_interval" value="0.15" />-->
+    <!-- OUTPUT TOPICS -->
+    <remap from="joy" to="/joy_arm" />
+  </node>
+  <!-- sar_arm_test Node -->
+  <node pkg="qrteam" type="sar_arm_test" name="sar_arm_test" clear_params="true" output="screen" respawn="true"/>
+
+</launch>
