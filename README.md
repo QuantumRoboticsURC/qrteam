@@ -37,5 +37,30 @@ joy_arm:=/dev/input/js0
 - [ ] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) The lost_comms package are *looking for connection*
 - [x] ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) You can **control the robotic arm** with Attack 3 logitech joystick
 - [ ] ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) You can *abort any action* when the actions has started
-![Esta es una imagen](https://zonayummy.com/arteam_github/sar_arm_test_mapping.png)
-- [x] ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) You can
+- [ ] ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) You can *visualize all info in a interface and interact*
+  - [ ] You can controll the lab on board with the interface
+  - [ ] You can see all the cameras with in the interface
+
+* For test the robotic arm*
+You can guide you with the next list and image
+![Esta es una imagen](https://github.com/QuantumRoboticsURC/qrteam/blob/main/manual/sar_arm_test_mapping.png)
+
+`1a. Tomar un destornillador` / `Take a screwdriver`
+
+`1b. Tomar un contenedor de suministros` / `Take a supply containers`
+
+`1c. Tomar una roca de 5kg` / `Take a rock`
+
+`1d. Jalar y tomar con una cuerda un objeto` / `Pull object by a rope`
+
+`2a. Tomar un cache container y guardarlo` / `Save the cache container`
+
+`2b. Desbloquear la bisagra de una puerta(duda)` / `Undo a latch on a hinged panel`
+
+`2c. Escribir en un teclado` / `Write on a keybord`
+
+`2d. Manejar un joystick` / `Move a joystick`
+
+`2e Tomar e introducir una memoria USB` / `Take and insert a USB`
+
+`2f Botones, interruptores y girar mandos` / `Buttons, switches and joysticks`
