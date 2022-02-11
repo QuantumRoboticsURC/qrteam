@@ -3,6 +3,7 @@
 # from sympy import true
 import rospy
 import time
+import os
 from sensor_msgs.msg import Joy
 from std_msgs.msg import Int32
 from geometry_msgs.msg import Twist
@@ -21,8 +22,11 @@ class ArmTeleop:
 		self.gripper = rospy.Publisher('arm_teleop/gripper_arm', Int32, queue_size=1)
 		# Initialize the joy subscriber
 		self.joy_sub = rospy.Subscriber("joy_arm", Joy, self.on_joy)
+		self.joy_abort = rospy.Subscriber("joy_arm", Joy, self.abord_action)
+		self.joy_abort.unregister()
 
 	def go_home(self):
+		self.joy_abort = rospy.Subscriber("joy_arm", Joy, self.abord_action)
 		# Locking drive_teleop with cmd_vel_mux
 		self.cmd_vel_mux.publish(1)
 		twist = Twist()
@@ -144,7 +148,13 @@ class ArmTeleop:
 			# Buttons, switches and joysticks
 			self.Action2f()
 			self.unlock_drive_teleop()
+		self.joy_abort.unregister()
 		self.joy_sub = rospy.Subscriber("joy_arm", Joy, self.on_joy)
+
+	def abord_action(self, data):
+		### BTN 0: Home
+		if data.buttons[0] == 1:
+			os.system("rosnode kill sar_arm_test")
 
 	def Action1a(self): # Take a screwdriver
 		return 0
