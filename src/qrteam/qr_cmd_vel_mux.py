@@ -35,6 +35,8 @@ class CmdVelMux:
             self.led_matrix.publish(0)
         elif (self.mode == 2):
             self.led_matrix.publish(0)
+        twist = Twist()
+        self.cmd_vel.publish(twist)
 
 def main():
     rospy.init_node("qr_cmd_vel_mux")

@@ -21,6 +21,8 @@ class DriveTeleop:
         self.right_speed = 0
         self.last_axis_left = 0
         self.last_axis_right = 0
+        self.acel = 10
+        self.desacel = 0.5
 
     def on_vel_limit_lost_comms(self, msg):
         self.vel_limit_setting = msg.data
@@ -49,30 +51,30 @@ class DriveTeleop:
             ##### left speed axis 1
             axis_left = data.axes[1]
             if abs(axis_left) == 0 and self.left_speed != 0:
-                if abs(self.left_speed) < 0.1: self.left_speed = 0
-                elif self.left_speed >= 0.1: self.left_speed -= 0.1
-                elif self.left_speed <= -0.1: self.left_speed += 0.1
+                if abs(self.left_speed) < self.desacel: self.left_speed = 0
+                elif self.left_speed >= self.desacel: self.left_speed -= self.desacel
+                elif self.left_speed <= -self.desacel: self.left_speed += self.desacel
             else:
                 left_difference = axis_left-self.left_speed
                 if (left_difference > 0 and self.left_speed < self.vel_limit_setting):
-                    self.left_speed += abs(axis_left) / 20
+                    self.left_speed += abs(axis_left) / self.acel
                     if self.left_speed > 1: self.left_speed = 1
                 elif (left_difference < 0 and self.left_speed > -self.vel_limit_setting):
-                    self.left_speed -= abs(axis_left) / 20
+                    self.left_speed -= abs(axis_left) / self.acel
                     if self.left_speed < -1: self.left_speed = -1
             ##### right speed axis 5
             axis_right = data.axes[5]
             if abs(axis_right) == 0 and self.right_speed != 0:
-                if abs(self.right_speed) < 0.1: self.right_speed = 0
-                elif self.right_speed >= 0.1: self.right_speed -= 0.1
-                elif self.right_speed <= -0.1: self.right_speed += 0.1
+                if abs(self.right_speed) < self.desacel: self.right_speed = 0
+                elif self.right_speed >= self.desacel: self.right_speed -= self.desacel
+                elif self.right_speed <= -self.desacel: self.right_speed += self.desacel
             else:
                 right_difference = axis_right-self.right_speed
                 if (right_difference > 0 and self.right_speed < self.vel_limit_setting):
-                    self.right_speed += abs(axis_right) / 20
+                    self.right_speed += abs(axis_right) / self.acel
                     if self.right_speed > 1: self.right_speed = 1
                 elif (right_difference < 0 and self.right_speed > -self.vel_limit_setting):
-                    self.right_speed -= abs(axis_right) / 20
+                    self.right_speed -= abs(axis_right) / self.acel
                     if self.right_speed < -1: self.right_speed = -1
 
         elif (self.joy_drive_model == "ec"):
@@ -97,31 +99,31 @@ class DriveTeleop:
             ##### left speed axis 1
             axis_left = data.axes[1]
             if abs(axis_left) == 0 and self.left_speed != 0:
-                if abs(self.left_speed) < 0.1: self.left_speed = 0
-                elif self.left_speed >= 0.1: self.left_speed -= 0.1
-                elif self.left_speed <= -0.1: self.left_speed += 0.1
+                if abs(self.left_speed) < self.desacel: self.left_speed = 0
+                elif self.left_speed >= self.desacel: self.left_speed -= self.desacel
+                elif self.left_speed <= -self.desacel: self.left_speed += self.desacel
             else:
                 left_difference = axis_left-self.left_speed
                 if (left_difference > 0 and self.left_speed < self.vel_limit_setting):
-                    self.left_speed += abs(axis_left) / 20
+                    self.left_speed += abs(axis_left) / self.acel
                     if self.left_speed > 1: self.left_speed = 1
                 elif (left_difference < 0 and self.left_speed > -self.vel_limit_setting):
-                    self.left_speed -= abs(axis_left) / 20
+                    self.left_speed -= abs(axis_left) / self.acel
                     if self.left_speed < -1: self.left_speed = -1
             rospy.loginfo("left_speed: %f" % self.left_speed)
             ##### right speed axis 3
             axis_right = data.axes[3]
             if abs(axis_right) == 0 and self.right_speed != 0:
-                if abs(self.right_speed) < 0.1: self.right_speed = 0
-                elif self.right_speed >= 0.1: self.right_speed -= 0.1
-                elif self.right_speed <= -0.1: self.right_speed += 0.1
+                if abs(self.right_speed) < self.desacel: self.right_speed = 0
+                elif self.right_speed >= self.desacel: self.right_speed -= self.desacel
+                elif self.right_speed <= -self.desacel: self.right_speed += self.desacel
             else:
                 right_difference = axis_right-self.right_speed
                 if (right_difference > 0 and self.right_speed < self.vel_limit_setting):
-                    self.right_speed += abs(axis_right) / 20
+                    self.right_speed += abs(axis_right) / self.acel
                     if self.right_speed > 1: self.right_speed = 1
                 elif (right_difference < 0 and self.right_speed > -self.vel_limit_setting):
-                    self.right_speed -= abs(axis_right) / 20
+                    self.right_speed -= abs(axis_right) / self.acel
                     if self.right_speed < -1: self.right_speed = -1
             rospy.loginfo("right_speed: %f" % self.right_speed)
 
@@ -147,31 +149,31 @@ class DriveTeleop:
             ##### left speed axis 1
             axis_left = data.axes[1]
             if abs(axis_left) == 0 and self.left_speed != 0:
-                if abs(self.left_speed) < 0.1: self.left_speed = 0
-                elif self.left_speed >= 0.1: self.left_speed -= 0.1
-                elif self.left_speed <= -0.1: self.left_speed += 0.1
+                if abs(self.left_speed) < self.desacel: self.left_speed = 0
+                elif self.left_speed >= self.desacel: self.left_speed -= self.desacel
+                elif self.left_speed <= -self.desacel: self.left_speed += self.desacel
             else:
                 left_difference = axis_left-self.left_speed
                 if (left_difference > 0 and self.left_speed < self.vel_limit_setting):
-                    self.left_speed += abs(axis_left) / 20
+                    self.left_speed += abs(axis_left) / self.acel
                     if self.left_speed > 1: self.left_speed = 1
                 elif (left_difference < 0 and self.left_speed > -self.vel_limit_setting):
-                    self.left_speed -= abs(axis_left) / 20
+                    self.left_speed -= abs(axis_left) / self.acel
                     if self.left_speed < -1: self.left_speed = -1
             rospy.loginfo("left_speed: %f" % self.left_speed)
             ##### right speed axis 4
             axis_right = data.axes[4]
             if abs(axis_right) == 0 and self.right_speed != 0:
-                if abs(self.right_speed) < 0.1: self.right_speed = 0
-                elif self.right_speed >= 0.1: self.right_speed -= 0.1
-                elif self.right_speed <= -0.1: self.right_speed += 0.1
+                if abs(self.right_speed) < self.desacel: self.right_speed = 0
+                elif self.right_speed >= self.desacel: self.right_speed -= self.desacel
+                elif self.right_speed <= -self.desacel: self.right_speed += self.desacel
             else:
                 right_difference = axis_right-self.right_speed
                 if (right_difference > 0 and self.right_speed < self.vel_limit_setting):
-                    self.right_speed += abs(axis_right) / 20
+                    self.right_speed += abs(axis_right) / self.acel
                     if self.right_speed > 1: self.right_speed = 1
                 elif (right_difference < 0 and self.right_speed > -self.vel_limit_setting):
-                    self.right_speed -= abs(axis_right) / 20
+                    self.right_speed -= abs(axis_right) / self.acel
                     if self.right_speed < -1: self.right_speed = -1
             rospy.loginfo("right_speed: %f" % self.right_speed)
 
