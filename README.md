@@ -1,4 +1,8 @@
 # qrteam
+___
+# FOR TESTING VELOCITY 2022/02/11
+`roslaunch qrteam qrteam_veltest.launch joy_drive:=/dev/input/js0`
+___
 ## for control rover without an active network (ROSMASTER == ROSIP)
 ___
 This github repo contains at the moment the following packages all in one:
