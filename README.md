@@ -1,4 +1,4 @@
-# qrteam
+# qrteam for urc
 ___
 # FOR TESTING VELOCITY 2022/02/11
 `roslaunch qrteam qrteam_veltest.launch joy_drive:=/dev/input/js0`
