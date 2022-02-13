@@ -15,9 +15,9 @@ This github repo contains at the moment the following packages all in one:
 - [x] qrteam/**qr_rover_cmd_vel_mux** <-> before this package was **cmd_vel_mux.py** from simple_drive
 - [x] qrteam/**qr_rover_lost_comms** <-> before this package was **lost_comms.py** from lost_comms
 - [ ] qrteam/**qr_base_arm_teleop** <-> before this package was **arm_teleop.py** from simple_arm
-  - [x] Ya esta lista la versión para pruebas para el video del sar qrteam/**sar_base_arm_test.py**
+  - [x] The SAR test version is ready qrteam/**sar_base_arm_test.py**
 - [ ] qrteam/**qr_rover_arm_firmware** <-> before this package was **bus_can_arm.cpp** from bus_can_arm
-- ... Esperamos tambien contar pronto con una versión lite de los paquetes zed_wrapper y zed_depth_sub_tutorial
+- ... We also hope to have a lite version of the packages *zed_wrapper y zed_depth_sub_tutorial* available soon
 
 and all these nodes runs at the same time thanks with the launcher ***roslaunch qrteam qrteam.launch***
 ```
