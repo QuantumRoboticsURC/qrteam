@@ -45,8 +45,8 @@ jm:=ec
 ```
 And you must to input the parameter of the IP addres or IP addresses that you can monitor ("no ip" is the default value):
 ```
-ip:=192.168.100.1
-ip:=192.168.100.1,192.168.100.2
+ip:=48.10.100.102
+ip:=48.10.100.102,48.10.100.100
 ```
 *The package satisfies the next checklist:*
 - [x] ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) **Control of traction** with joystick publishing the cmd_vel topic
