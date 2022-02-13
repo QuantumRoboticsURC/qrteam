@@ -156,7 +156,7 @@ response = rospy.Publisher("/hola", String, queue_size=1)
 
 
 def main():
-	rospy.init_node("qr_nav_difusa")
+	rospy.init_node("qr_rover_nav_difusa")
 	sub = rospy.Subscriber('/nav/obstacle',String, logic_dif)
 	flag_nav_auto = rospy.Subscriber('/flag/nav_auto',String, flag_control)
 	rate = rospy.Rate(5)
