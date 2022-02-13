@@ -154,7 +154,7 @@ class ArmTeleop:
 	def abord_action(self, data):
 		### BTN 0: Home
 		if data.buttons[0] == 1:
-			os.system("rosnode kill sar_arm_test")
+			os.system("rosnode kill sar_base_arm_test")
 
 	def Action1a(self): # Take a screwdriver
 		return 0
@@ -187,6 +187,6 @@ class ArmTeleop:
 		return 0
 
 def main():
-	rospy.init_node("sar_arm_test")
-	sar_arm_test = ArmTeleop()
+	rospy.init_node("sar_base_arm_test")
+	sar_base_arm_test = ArmTeleop()
 	rospy.spin()

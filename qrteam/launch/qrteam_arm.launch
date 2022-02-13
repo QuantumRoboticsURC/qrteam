@@ -3,10 +3,10 @@
 <launch>
   <env name="ROSCONSOLE_FORMAT" value="[${severity}][${thread}][${node}/${function}:${line}]: ${message}"/>
 
-  <!--*** qr_lost_comms ***--> <!-- ip:=192.168.1.2 --> <!-- jm:=xbox-->
+  <!--*** qr_rover_lost_comms ***--> <!-- ip:=192.168.1.2 --> <!-- jm:=xbox-->
   <arg name="ip" default="no"/>
   <arg name="jm" default="ps5"/>
-  <node pkg="qrteam" type="qr_lost_comms" name="qr_lost_comms" clear_params="true" output="screen" respawn="true" >
+  <node pkg="qr_rover_lost_comms" type="qr_rover_lost_comms" name="qr_rover_lost_comms" clear_params="true" output="screen" respawn="true" >
     <param name="ping_fail_count" value="1"/>
     <param name="goal_frame_id" value="map"/>
     <param name="ips_to_monitor" value="$(arg ip)"/>
@@ -17,9 +17,9 @@
     <remap from="cmd_vel" to="cmd_vel" /> <!-- zero motors -->
   </node>
 
-  <!--*** qr_drive_teleop ***-->
+  <!--*** qr_base_drive_teleop ***-->
   <!-- Joystick Drive Device Argument --> <!-- joy_drive:=/dev/input/js1 -->
-  <arg name="joy_drive" default="/dev/input/js1"/>
+  <arg name="joy_drive" default="/dev/input/js0"/>
   <!-- Joy Node -->
   <node pkg="joy" type="joy_node" name="joy_drive" clear_params="true" output="screen" respawn="true">
     <!-- INPUT DEVICE -->
@@ -30,17 +30,17 @@
     <!-- OUTPUT TOPICS -->
     <remap from="joy" to="/joy_drive" />
   </node>
-  <!-- qr_drive_teleop Node -->
-  <node pkg="qrteam" type="qr_drive_teleop" name="qr_drive_teleop" clear_params="true" output="screen" respawn="true">
+  <!-- qr_base_drive_teleop Node -->
+  <node pkg="qr_base_drive_teleop" type="qr_base_drive_teleop" name="qr_base_drive_teleop" clear_params="true" output="screen" respawn="true">
     <param name="joy_drive_model" value="$(arg jm)"/>
   </node>
-  <!-- qr_drive_teleop Node -->
-  <node pkg="qrteam" type="qr_cmd_vel_mux" name="qr_cmd_vel_mux" clear_params="true" output="screen" respawn="true"/>
+  <!-- qr_rover_cmd_vel_mux Node -->
+  <node pkg="qr_rover_cmd_vel_mux" type="qr_rover_cmd_vel_mux" name="qr_rover_cmd_vel_mux" clear_params="true" output="screen" respawn="true"/>
 
 
-  <!--*** sar_arm_test ***-->
+  <!--*** sar_base_arm_test ***-->
   <!-- Joystick Arm Device Argument --> <!-- joy_arm:=/dev/input/js0 -->
-  <arg name="joy_arm" default="/dev/input/js0"/>
+  <arg name="joy_arm" default="/dev/input/js1"/>
   <!-- Joy Node -->
   <node pkg="joy" type="joy_node" name="joy_arm" clear_params="true" output="screen" respawn="true">
     <!-- INPUT DEVICE -->
@@ -51,6 +51,6 @@
     <remap from="joy" to="/joy_arm" />
   </node>
   <!-- sar_arm_test Node -->
-  <node pkg="qrteam" type="sar_arm_test" name="sar_arm_test" clear_params="true" output="screen" respawn="true"/>
+  <node pkg="sar_base_arm_test" type="sar_base_arm_test" name="sar_base_arm_test" clear_params="true" output="screen" respawn="true"/>
 
 </launch>

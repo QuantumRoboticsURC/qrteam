@@ -39,6 +39,6 @@ class CmdVelMux:
         self.cmd_vel.publish(twist)
 
 def main():
-    rospy.init_node("qr_cmd_vel_mux")
-    qr_cmd_vel_mux = CmdVelMux()
+    rospy.init_node("qr_rover_cmd_vel_mux")
+    qr_rover_cmd_vel_mux = CmdVelMux()
     rospy.spin()

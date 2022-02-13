@@ -105,9 +105,9 @@ class RecorveryController():
 
 
 def main():
-  rospy.init_node("qr_lost_comms")
-  qr_lost_comms = RecorveryController()
-  qr_lost_comms.ips = rospy.get_param('~ips_to_monitor')
-  qr_lost_comms.joy_drive_model = rospy.get_param('~joy_drive_model')
-  rospy.loginfo('Monitoring base station on IP(s): %s.' % qr_lost_comms.ips)
-  qr_lost_comms.main_loop() # start monitoring
+  rospy.init_node("qr_rover_lost_comms")
+  qr_rover_lost_comms = RecorveryController()
+  qr_rover_lost_comms.ips = rospy.get_param('~ips_to_monitor')
+  qr_rover_lost_comms.joy_drive_model = rospy.get_param('~joy_drive_model')
+  rospy.loginfo('Monitoring base station on IP(s): %s.' % qr_rover_lost_comms.ips)
+  qr_rover_lost_comms.main_loop() # start monitoring

@@ -3,10 +3,10 @@
 <launch>
   <env name="ROSCONSOLE_FORMAT" value="[${severity}][${thread}][${node}/${function}:${line}]: ${message}"/>
 
-  <!--*** qr_lost_comms ***--> <!-- ip:=192.168.1.2 --> <!-- jm:=xbox-->
+  <!--*** qr_rover_lost_comms ***--> <!-- ip:=192.168.1.2 --> <!-- jm:=xbox-->
   <arg name="ip" default="no"/>
   <arg name="jm" default="ps5"/>
-  <node pkg="qrteam" type="qr_lost_comms" name="qr_lost_comms" clear_params="true" output="screen" respawn="true" >
+  <node pkg="qr_rover_lost_comms" type="qr_rover_lost_comms" name="qr_rover_lost_comms" clear_params="true" output="screen" respawn="true" >
     <param name="ping_fail_count" value="1"/>
     <param name="goal_frame_id" value="map"/>
     <param name="ips_to_monitor" value="$(arg ip)"/>
@@ -34,5 +34,5 @@
     <param name="joy_drive_model" value="$(arg jm)"/>
   </node>
   <!-- qr_cmd_vel_mux Node -->
-  <node pkg="qrteam" type="qr_cmd_vel_mux" name="qr_cmd_vel_mux" clear_params="true" output="screen" respawn="true"/>
+  <node pkg="qr_rover_cmd_vel_mux" type="qr_rover_cmd_vel_mux" name="qr_rover_cmd_vel_mux" clear_params="true" output="screen" respawn="true"/>
 </launch>
