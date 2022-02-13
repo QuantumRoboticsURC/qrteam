@@ -5,7 +5,7 @@ import rospy
 import subprocess
 import actionlib
 
-from std_msgs.msg import Int32
+from std_msgs.msg import Float32
 from sensor_msgs.msg import Joy
 from geometry_msgs.msg import Twist, PoseWithCovarianceStamped
 from actionlib_msgs.msg import GoalStatus, GoalStatusArray
@@ -28,7 +28,12 @@ class RecorveryController():
         self.cmd_vel = rospy.Publisher('cmd_vel', Twist, queue_size=10)
         self.joy_drive = rospy.Publisher('joy_drive', Joy, queue_size=10)
         self.joy_arm = rospy.Publisher('joy_arm', Joy, queue_size=10)
-        self.vel_limit_lost_comms = rospy.Publisher('vel_limit_lost_comms', Int32, queue_size=10)
+        self.vel_limit_lost_comms = rospy.Publisher('vel_limit_lost_comms', Float32, queue_size=10)
+        self.cmd_vel_sub = rospy.Subscriber('cmd_vel', Twist, self.cmd_vel_callback)
+        self.cmd_vel_twist = Twist()
+
+    def cmd_vel_callback(self, msg):
+        self.cmd_vel_twist = msg
     
     def working_comms(self):
         working_comms = False
@@ -36,13 +41,25 @@ class RecorveryController():
             for ip in self.ips.split(','):
                 (output, error, returncode) = ping_host(ip)
                 if returncode == 0:
-                    ping = int(output.split('/')[-1].split('.')[0])
+                    #ping = int(output.split('/')[-1].split('.')[0])
+                    ping = float(output.split('time=')[1].split(' ')[0])
+                    rospy.loginfo("ping %s: %s" % (ip, ping))
+                    twist = Twist()
                     if ping > 1000:
                         self.vel_limit_lost_comms.publish(0.3)
+                        twist.linear.x = self.cmd_vel_twist.linear.x/4
+                        twist.angular.z = self.cmd_vel_twist.angular.z/4
+                        self.cmd_vel.publish(twist)
                     elif ping > 500:
                         self.vel_limit_lost_comms.publish(0.6)
+                        twist.linear.x = self.cmd_vel_twist.linear.x/2
+                        twist.angular.z = self.cmd_vel_twist.angular.z/2
+                        self.cmd_vel.publish(twist)
                     elif ping  < 500:
                         self.vel_limit_lost_comms.publish(1)
+                        twist.linear.x = self.cmd_vel_twist.linear.x
+                        twist.angular.z = self.cmd_vel_twist.angular.z
+                        self.cmd_vel.publish(twist)
                     working_comms = True
         else:
             working_comms = True

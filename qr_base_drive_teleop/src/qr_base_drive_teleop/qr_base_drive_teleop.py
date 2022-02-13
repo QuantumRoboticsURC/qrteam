@@ -16,7 +16,7 @@ class DriveTeleop:
         self.cmd_vel_teleop = rospy.Publisher("teleop/cmd_vel", Twist, queue_size=1)
         self.cmd_vel_mux = rospy.Publisher("cmd_vel_mux", Int32, queue_size=1)
         self.joy_sub = rospy.Subscriber("joy_drive", Joy, self.on_joy)
-        self.vel_limit_lost_comms = rospy.Subscriber("vel_limit_lost_comms", Int32, self.on_vel_limit_lost_comms)
+        self.vel_limit_lost_comms = rospy.Subscriber("vel_limit_lost_comms", Float32, self.on_vel_limit_lost_comms)
         self.left_speed = 0
         self.right_speed = 0
         self.last_axis_left = 0
@@ -110,7 +110,6 @@ class DriveTeleop:
                 elif (left_difference < 0 and self.left_speed > -self.vel_limit_setting):
                     self.left_speed -= abs(axis_left) / self.acel
                     if self.left_speed < -1: self.left_speed = -1
-            rospy.loginfo("left_speed: %f" % self.left_speed)
             ##### right speed axis 3
             axis_right = data.axes[3]
             if abs(axis_right) == 0 and self.right_speed != 0:
@@ -125,7 +124,6 @@ class DriveTeleop:
                 elif (right_difference < 0 and self.right_speed > -self.vel_limit_setting):
                     self.right_speed -= abs(axis_right) / self.acel
                     if self.right_speed < -1: self.right_speed = -1
-            rospy.loginfo("right_speed: %f" % self.right_speed)
 
         elif (self.joy_drive_model == "xbox"):
             # Set speed ratio using d-pad
@@ -160,7 +158,6 @@ class DriveTeleop:
                 elif (left_difference < 0 and self.left_speed > -self.vel_limit_setting):
                     self.left_speed -= abs(axis_left) / self.acel
                     if self.left_speed < -1: self.left_speed = -1
-            rospy.loginfo("left_speed: %f" % self.left_speed)
             ##### right speed axis 4
             axis_right = data.axes[4]
             if abs(axis_right) == 0 and self.right_speed != 0:
@@ -175,7 +172,6 @@ class DriveTeleop:
                 elif (right_difference < 0 and self.right_speed > -self.vel_limit_setting):
                     self.right_speed -= abs(axis_right) / self.acel
                     if self.right_speed < -1: self.right_speed = -1
-            rospy.loginfo("right_speed: %f" % self.right_speed)
 
         # Convert skid steering speeds to twist speeds
         self.linear_vel  = (self.left_speed + self.right_speed) / 2.0 # (m/s)
@@ -190,7 +186,7 @@ class DriveTeleop:
         self.joy_sub = rospy.Subscriber("joy_drive", Joy, self.on_joy)
 
 def main():
-    rospy.init_node("qr_drive_teleop")
-    qr_drive_teleop = DriveTeleop()
-    qr_drive_teleop.joy_drive_model = rospy.get_param('~joy_drive_model')
+    rospy.init_node("qr_base_drive_teleop")
+    qr_base_drive_teleop = DriveTeleop()
+    qr_base_drive_teleop.joy_drive_model = rospy.get_param('~joy_drive_model')
     rospy.spin()

@@ -17,7 +17,7 @@
     <remap from="cmd_vel" to="cmd_vel" /> <!-- zero motors -->
   </node>
 
-  <!--*** qr_drive_teleop ***-->
+  <!--*** qr_base_drive_teleop ***-->
   <!-- Joystick Drive Device Argument --> <!-- joy_drive:=/dev/input/js1 -->
   <arg name="joy_drive" default="/dev/input/js0"/>
   <!-- Joy Node -->
@@ -30,11 +30,9 @@
     <!-- OUTPUT TOPICS -->
     <remap from="joy" to="/joy_drive" />
   </node>
-  <!-- qr_drive_teleop Node -->
-  <node pkg="qrteam" type="qr_drive_teleop" name="qr_drive_teleop" clear_params="true" output="screen" respawn="true">
+  <node pkg="qr_base_drive_teleop" type="qr_base_drive_teleop" name="qr_base_drive_teleop" clear_params="true" output="screen" respawn="true">
     <param name="joy_drive_model" value="$(arg jm)"/>
   </node>
-  <!-- qr_drive_teleop Node -->
+  <!-- qr_cmd_vel_mux Node -->
   <node pkg="qrteam" type="qr_cmd_vel_mux" name="qr_cmd_vel_mux" clear_params="true" output="screen" respawn="true"/>
-
 </launch>
