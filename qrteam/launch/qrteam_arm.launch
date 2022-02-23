@@ -3,7 +3,7 @@
 <launch>
   <env name="ROSCONSOLE_FORMAT" value="[${severity}][${thread}][${node}/${function}:${line}]: ${message}"/>
 
-  <!--*** qr_rover_lost_comms ***--> <!-- ip:=192.168.1.2 --> <!-- jm:=xbox-->
+  <!--*** qr_rover_lost_comms ***--> <!-- ip:=192.168.1.2 --> <!-- jm:=xbox-->1
   <arg name="ip" default="no"/>
   <arg name="jm" default="ps5"/>
   <node pkg="qr_rover_lost_comms" type="qr_rover_lost_comms" name="qr_rover_lost_comms" clear_params="true" output="screen" respawn="true" >
@@ -51,6 +51,7 @@
     <remap from="joy" to="/joy_arm" />
   </node>
   <!-- sar_arm_test Node -->
-  <node pkg="sar_base_arm_test" type="sar_base_arm_test" name="sar_base_arm_test" clear_params="true" output="screen" respawn="true"/>
+  <!-- <node pkg="sar_base_arm_test" type="sar_base_arm_test" name="sar_base_arm_test" clear_params="true" output="screen" respawn="true"/> -->
+  <node pkg="sar_arm_velnopos_graph" type="sar_arm_velnopos_graph" name="sar_arm_velnopos_graph" clear_params="true" output="screen" respawn="true"/>
 
 </launch>

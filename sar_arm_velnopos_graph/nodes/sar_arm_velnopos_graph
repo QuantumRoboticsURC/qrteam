@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+from sar_arm_velnopos_graph import sar_arm_velnopos_graph
+
+if __name__ == '__main__':
+    sar_arm_velnopos_graph.main()
